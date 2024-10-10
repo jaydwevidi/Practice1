@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.practice1.domain.uc.GetTodoListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -51,7 +50,6 @@ class MainVMImp @Inject constructor(
             }
         }
     }
-
 }
 
 sealed class UserAction {
