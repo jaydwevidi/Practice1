@@ -22,7 +22,7 @@ class TodoDetailsViewModel @Inject constructor(
 
     private val _state = MutableStateFlow<TodoDetailsUiState>(TodoDetailsUiState.Loading)
     val state: StateFlow<TodoDetailsUiState> = _state.asStateFlow()
-    
+
 
     fun userAction(action: TodoDetailsAction) {
         when (action) {

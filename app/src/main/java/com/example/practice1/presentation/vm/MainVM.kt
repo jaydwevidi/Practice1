@@ -7,6 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,17 +27,15 @@ class MainVMImp @Inject constructor(
     }
 
     private fun getData() {
+        _state.value = MainUiState.Loading
         viewModelScope.launch {
-            _state.value = MainUiState.Loading
-            val response = getTodoListUseCase().collect {
-                try {
-                    _state.value = MainUiState.Success(
-                        it
-                    )
-                } catch (e: Exception) {
+            getTodoListUseCase()
+                .catch { e ->
                     _state.value = MainUiState.Error
                 }
-            }
+                .collect { data ->
+                    _state.value = MainUiState.Success(data)
+                }
         }
     }
 
