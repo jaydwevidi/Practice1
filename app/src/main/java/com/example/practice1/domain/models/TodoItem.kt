@@ -1,4 +1,4 @@
-package com.example.practice1.data.models
+package com.example.practice1.domain.models
 
 data class TodoItem(
     val completed: Boolean,

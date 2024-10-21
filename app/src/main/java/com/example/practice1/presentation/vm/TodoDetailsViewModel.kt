@@ -3,7 +3,7 @@ package com.example.practice1.presentation.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.practice1.data.models.TodoItem
+import com.example.practice1.domain.models.TodoItem
 import com.example.practice1.domain.uc.GetTodoDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
